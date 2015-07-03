@@ -19,14 +19,3 @@ to provide a virtual toolbox for Security & System Engineers.
     6. Metasploitable (Extremeley Vulnerable Enviroment)
     7. DVWA (Extremeley Vulnerable Enviroment)
     8. Ubuntu & CentOS (Operating Systems)
-
-
-## V2.0 - State: Prototype
-    1. OpenStack
-    2. Cassandra
-    3. Graphite
-    4. JMXTrans
-    5. Dedicated BigData Infrastructure
-    6. Dedicated Computing Infrastructure.
-
-### References:
