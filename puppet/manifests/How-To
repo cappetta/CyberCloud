@@ -1,0 +1,21 @@
+Pre-requisites:
+    1) Vagrant w/ vagrant plugins:
+            openstack (1.1.2)
+            puppet (3.7.4)
+            vagrant-bindfs (0.4.0)
+            vagrant-login (1.0.1, system)
+            vagrant-openstack-plugin (0.11.1)
+            vagrant-share (1.1.3, system)
+    2) ./startup_cluster.sh
+
+# To start the cluster execute:
+
+  1) vagrant up --no-provision
+
+  2) vagrant provision --provision-with shell --debug 2>> /tmp/debug.out 1>> /tmp/corelogic.out
+
+  3) vagrant provision --provision-with puppet --debug 2>> /tmp/debug.out 1>> /tmp/corelogic.out
+
+
+
+
