@@ -8,10 +8,10 @@ class profiles::base{
 
 # Setup Application User
   group {'Create {{appGroup}} Group':
-    name => '{{user}}',
+    name => '{{group}}',
     ensure => 'present',
     notify => [
-      User['Create {{group}} User']
+      User['Create {{user}} User']
     ]
   }
 

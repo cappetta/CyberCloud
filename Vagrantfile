@@ -9,12 +9,37 @@ VAGRANTFILE_API_VERSION = "2"
 # todo: #1 - dynamic ip using numNodes -- REF http://nitschinger.at/A-Couchbase-Cluster-in-Minutes-with-Vagrant-and-Puppet
 # todo: #2 - dynamic creation/deletion of nodes for testing
 nodes = [
-    # { :hostname => 'core',    :ip => '192.168.0.42', :box => 'chef/centos-6.6',   :fport => "8081",   :init => "./puppet/centos_puppet_install_bootstrap.sh", :ram => "2046" },
-    { :hostname => 'agent1',  :ip => '192.168.0.43', :box => 'ubuntu/trusty64',   :fport => "8082",   :init => "./puppet/ubuntu_puppet_install_bootstrap.sh", :ram => "2046"  },
-    { :hostname => 'agent2',     :ip => '192.168.0.44', :box => 'ubuntu/trusty64',   :fport => "8083",   :init => "./puppet/ubuntu_puppet_install_bootstrap.sh" },
-    { :hostname => 'agent3',     :ip => '192.168.0.45', :box => 'ubuntu/trusty64',   :fport => "8084",   :init => "./puppet/ubuntu_puppet_install_bootstrap.sh" },
-    # { :hostname => 'ossim',     :ip => '192.168.0.46', :box => 'ubuntu/precise64',   :fport => "8087",   :init => "./puppet/ubuntu_puppet_install_bootstrap.sh" },
-    { :hostname => 'ossim-uvm',     :ip => '192.168.0.12', :box => 'ossim',   :fport => "8086", :init => "./puppet/centos_puppet_install_bootstrap.sh" , :ram => '8096'},
+    {
+        :hostname     => 'agent1',
+        :ip           => '192.168.0.43',
+        :box          => 'ubuntu/trusty64',
+        :fport        => "8082",
+        :init         => "./puppet/ubuntu_puppet_install_bootstrap.sh",
+        :ram          => "2046"
+    },
+    {
+        :hostname     => 'agent2',
+        :ip           => '192.168.0.44',
+        :box          => 'ubuntu/trusty64',
+        :fport        => "8083",
+        :init         => "./puppet/ubuntu_puppet_install_bootstrap.sh"
+    },
+    {
+        :hostname     => 'agent3',
+        :ip           => '192.168.0.45',
+        :box          => 'ubuntu/trusty64',
+        :fport        => "8084",
+        :init         => "./puppet/ubuntu_puppet_install_bootstrap.sh"
+    },
+    {
+        :hostname     => 'ossim-uvm',
+        :ip           => '192.168.0.12',
+        :box          => 'ossim',
+        :box_url      => 'https://www.dropbox.com/s/2w6jmymqdz5ubhc/ossim.box?dl=0',
+        :fport        => "8086",
+        :init         => "./puppet/centos_puppet_install_bootstrap.sh" ,
+        :ram          => '8096'
+    },
 ]
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -46,10 +71,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # todo: concurrent deployment ref: https://github.com/joemiller/sensu-tests/blob/master/para-vagrant.sh
     config.vm.provision :puppet do |puppet|
                 puppet.manifests_path = 'puppet/manifests'
-                # puppet.manifest_file = 'system_manifest.pp'
-                # puppet.manifest_file = 'ossim.pp'
-                puppet.manifest_file = 'ossim_build_install.pp'
-                # puppet.manifest_file = 'profile_base.pp'
-                puppet.module_path = 'puppet/modules'
+                puppet.module_path    = 'puppet/modules'
+                puppet.manifest_file  = 'ossim_build_install.pp'
+      # todo: implement v2 role logic
+      #         puppet.manifest_file  = 'profile_base.pp'
     end
 end
