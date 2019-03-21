@@ -85,7 +85,8 @@ yet complain when it is not present.
     4. JVM Monitoring using JMXTrans
     5. YAML Implementation
 
-### v3.0 - Production Proto-type
+
+### v3.0 - Production Proto-type 
 
     1. Dedicated BigData Infrastructure
     2. Dedicated Computing Infrastructure.

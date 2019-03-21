@@ -1,0 +1,11 @@
+2014-11-28 Jonathan Gazeley <jonathan.gazeley@bristol.ac.uk> - 1.3.0
+===========================================================
+
+ Jonathan Gazeley <jonathan.gazeley@bristol.ac.uk>:
+  * Add support for Debian "Jessie" (thanks to @ivan7farre)
+
+2015-01-16 Jonathan Gazeley <jonathan.gazeley@bristol.ac.uk> - 1.3.3
+===========================================================
+
+ Jonathan Gazeley <jonathan.gazeley@bristol.ac.uk>:
+  * Fix compatibility issue with PuppetServer (thanks to @d9705996)
